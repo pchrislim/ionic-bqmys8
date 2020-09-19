@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Calculator</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>CRAYLUK Tuition Installment Plan Calculator</h2>
+  <p>
+Compute and verify your tuition fee using this calculator application
+  </p>
+
+<br />
+<ion-item>
+  <ion-label> Total Fee Amount </ion-label>
+  <ion-input type="number" [(ngModel)]="tuitionfee" ></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label> Payment Terms </ion-label>
+  <ion-input type="number" [(ngModel)]="paymentTerms" ></ion-input>
+</ion-item>
+
+
+<button ion-button color="primary" (click)="compute()">Compute</button>
+
+<br /><br />
+<ion-item *ngIf="totalinterestpayable">
+  <h3> Total Interest Payable: {{totalinterestpayable | currency: '&#8369;'  }}  </h3>
+</ion-item>
+
+<ion-item *ngIf="totalamountspayable">
+  <h3> Total Amount Payable: {{totalamountspayable | currency: '&#8369;' }} </h3>
+</ion-item>
+
+<ion-item *ngIf="monthlypayment">
+  <h3> Monthly Payment: {{monthlypayment | currency: '&#8369;' }} </h3>
+</ion-item>
+
+
+</ion-content>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
